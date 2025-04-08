@@ -1,0 +1,32 @@
+@import "@/src/styles/mixins.scss";
+
+.genres {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  &__head {
+    font-weight: 700;
+    font-size: 40px;
+
+    @include respond-to("phone") {
+      font-size: 24px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 64px 40px;
+
+    @include respond-to("phone") {
+      gap: 24px;
+    }
+  }
+
+  @include respond-to("phone") {
+    gap: 40px;
+  }
+}

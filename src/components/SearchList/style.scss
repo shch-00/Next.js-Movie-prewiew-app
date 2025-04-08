@@ -1,0 +1,61 @@
+@import "@/src/styles/variables";
+@import "@/src/styles/mixins";
+
+.search-list {
+  padding: 8px;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  max-width: 560px;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 168px);
+  background-color: $color-cape-cod;
+  border-radius: 8px;
+  overflow: scroll;
+  $root: &;
+
+  .custom-input--miniature & {
+    top: 280%;
+    right: -75px;
+    width: calc(100vw - 40px);
+    max-width: unset;
+    height: auto;
+    padding: 24px 20px;
+    overflow: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    max-height: unset;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    #{$root}__link {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+    }
+
+    @include respond-to("phone") {
+      right: -55px;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 32px;
+    display: block;
+    text-align: center;
+    margin: 16px 0;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: border-color $transition-3e;
+
+    &:hover {
+      border-color: $color-white-50;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@import "@/src/styles/variables";
+
+.genre-card {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid $color-white-25;
+  box-shadow: 0px 0px 80px 0px $color-white-33;
+  overflow: hidden;
+  width: 290px;
+  height: 305px;
+  transition: box-shadow $transition-5e;
+
+  &:hover {
+    box-shadow: 0px 0px 80px 16px $color-white-54;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-black;
+    height: 85px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

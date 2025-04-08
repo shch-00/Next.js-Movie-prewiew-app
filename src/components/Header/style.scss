@@ -1,0 +1,109 @@
+@import "@/src/styles/variables";
+@import "@/src/styles/mixins";
+
+.header {
+  padding: 24px 0 56px;
+
+  &__content {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    @include respond-to("tablet") {
+      gap: 32px;
+    }
+  }
+
+  &__logo-link {
+    width: min-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: transform $transition-3e;
+
+    &:hover {
+      transform: scale(0.95);
+    }
+  }
+
+  &__img {
+    width: auto;
+    height: 32px;
+
+    @include respond-to("phone") {
+      width: auto;
+      height: 18px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  &__link {
+    display: flex;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1.5px solid transparent;
+    transition:
+      border-color $transition-3e,
+      color $transition-3e;
+
+    &:hover {
+      color: $color-white-60;
+      border-color: $color-heliotrope;
+    }
+
+    &--active {
+      border-color: $color-heliotrope;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+
+    &--btn {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid transparent;
+      font-size: 24px;
+      color: $color-white;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    &--disabled {
+      display: none;
+    }
+
+    &--miniature {
+      .header__link-text {
+        display: none;
+      }
+
+      .header__link-icon {
+        display: flex;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__link-text {
+    font-size: 24px;
+  }
+
+  &__link-icon {
+    display: none;
+    margin: auto 0;
+  }
+
+  @include respond-to("tablet") {
+    padding: 8px 0 8px;
+  }
+}

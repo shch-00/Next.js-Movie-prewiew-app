@@ -1,0 +1,87 @@
+@import "@/src/styles/variables";
+@import "@/src/styles/mixins";
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__info {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: $color-white-50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+
+    @include respond-to("phone") {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__avatar-text {
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__tag {
+    font-size: 18px;
+
+    @include respond-to("phone") {
+      font-size: 14px;
+      line-height: 20px;
+      color: $color-white-50;
+    }
+  }
+
+  &__value {
+    font-weight: 700;
+    font-size: 24px;
+
+    @include respond-to("phone") {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__button {
+    background-color: $color-cornflower-blue;
+    color: $color-white;
+    width: min-content;
+    text-wrap: nowrap;
+    padding: 16px 48px;
+
+    &:hover {
+      background-color: $color-san-marino;
+    }
+  }
+
+  @include respond-to("phone") {
+    gap: 40px;
+  }
+}

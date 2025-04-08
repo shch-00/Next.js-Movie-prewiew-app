@@ -1,0 +1,20 @@
+@import "@/src/styles/mixins.scss";
+
+.movie-backdrop {
+  max-width: 680px;
+  width: 100%;
+  display: flex;
+  height: 100%;
+
+  &__img {
+    width: 100%;
+    border-radius: 16px;
+    max-height: 552px;
+  }
+
+  @include respond-to("tablet") {
+    max-width: unset;
+    grid-row: 1 / 2;
+    min-height: 230px;
+  }
+}

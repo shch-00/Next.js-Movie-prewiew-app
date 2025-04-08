@@ -1,0 +1,76 @@
+@import "@/src/styles/variables";
+
+.movie-search {
+  display: flex;
+  min-height: 92px;
+  padding: 20px 8px;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+  $root: &;
+
+  &__img-wrapper {
+    height: 52px;
+  }
+
+  &__img {
+    height: 100%;
+    width: 40px;
+    object-fit: cover;
+  }
+
+  &__inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__note {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__head {
+    font-size: 18px;
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: border-color $transition-3e;
+
+    &:hover {
+      border-color: $color-white-50;
+    }
+  }
+
+  .custom-input--miniature & {
+    flex-direction: column;
+
+    #{$root}__img-wrapper {
+      height: 200px;
+    }
+
+    #{$root}__img {
+      height: 100%;
+      width: auto;
+    }
+
+    #{$root}__info {
+      flex-wrap: wrap;
+    }
+  }
+}

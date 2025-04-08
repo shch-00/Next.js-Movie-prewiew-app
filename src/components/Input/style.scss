@@ -1,0 +1,234 @@
+@import "@/src/styles/variables";
+@import "@/src/styles/mixins";
+
+.custom-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  $root: &;
+
+  & .input-icon {
+    position: absolute;
+    color: $color-black-40;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    transition: color $transition-3e;
+  }
+
+  &__field {
+    width: 100%;
+    border-radius: 16px;
+    font-size: 18px;
+    font-family: inherit;
+    outline: none;
+    transition:
+      background-color $transition-3e,
+      border-color $transition-3e;
+    background-color: transparent;
+    padding: 16px 16px 16px 52px;
+    border: 1px solid $color-black-40;
+    color: $color-black-80;
+
+    &::placeholder {
+      color: $color-black-40;
+      font-size: 18px;
+      font-family: inherit;
+      transition:
+        opacity $transition-3e,
+        color $transition-3e;
+    }
+  }
+
+  &:hover {
+    & .custom-input__field {
+      border-color: $color-heliotrope;
+
+      &::placeholder {
+        color: $color-heliotrope;
+      }
+    }
+
+    & .input-icon {
+      color: $color-heliotrope;
+    }
+  }
+
+  & .close-button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity $transition-3e;
+  }
+
+  & .close-icon {
+    width: 24px;
+    height: 24px;
+    color: $color-white-50;
+  }
+
+  &--search {
+    max-width: 656px;
+    height: 100%;
+    z-index: 30;
+
+    &:hover {
+      & .custom-input__field {
+        background-color: $color-cape-cod-50;
+
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+    }
+
+    & .custom-input__field {
+      height: 100%;
+      background-color: $color-cape-cod;
+      border: none;
+      padding: 12px 52px;
+      color: $color-white-50;
+      cursor: default;
+
+      &::placeholder {
+        color: $color-white-50;
+        font-size: 18px;
+        font-family: inherit;
+        transition: opacity $transition-3e;
+      }
+    }
+
+    & .input-icon {
+      color: $color-white-50;
+    }
+  }
+
+  &--focused {
+    & .close-button {
+      opacity: 1;
+      pointer-events: all;
+      cursor: pointer;
+    }
+
+    & .custom-input__field {
+      cursor: text;
+      background-color: $color-cape-cod-50;
+
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+
+    #{$root}__label {
+      z-index: -1;
+    }
+  }
+
+  &__label {
+    display: none;
+
+    .input-icon {
+      color: $color-white;
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+    }
+  }
+
+  &--miniature {
+    width: min-content;
+
+    & .input-icon {
+      opacity: 0;
+    }
+
+    &:hover {
+      #{$root}__field {
+        background-color: $color-cape-cod;
+      }
+    }
+
+    & .close-button {
+      top: 115%;
+      right: -200%;
+    }
+
+    #{$root}__field {
+      position: absolute;
+      top: 0;
+      right: -75px;
+      width: 0;
+      height: 56px;
+      opacity: 0;
+      pointer-events: none;
+      background-color: $color-cape-cod;
+      border-radius: 8px;
+      clip-path: polygon(
+        100% 0,
+        100% 0,
+        100% 30%,
+        100% 70%,
+        100% 100%,
+        100% 100%,
+        100% 70%,
+        100% 30%
+      );
+      transition:
+        clip-path $transition-5e,
+        width $transition-5e,
+        opacity $transition-5e;
+
+      @include respond-to("phone") {
+        right: -55px;
+      }
+    }
+
+    #{$root}__label {
+      display: flex;
+
+      & .input-icon {
+        opacity: 1;
+      }
+    }
+
+    &#{$root}--focused {
+      #{$root}__field {
+        width: calc(100vw - 40px);
+        opacity: 1;
+        pointer-events: auto;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% 30%,
+          100% 70%,
+          100% 100%,
+          0 100%,
+          0 70%,
+          0 30%
+        );
+      }
+    }
+  }
+
+  .form & {
+    max-width: 400px;
+
+    #{$root}__field {
+      border-radius: 8px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import "@/src/styles/mixins.scss";
+
+.home {
+  padding: 0 0 60px;
+}
+
+.top-movies {
+  &__head {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    padding: 0 0 64px;
+
+    @include respond-to("phone") {
+      font-size: 24px;
+      padding: 0 0 40px;
+    }
+  }
+
+  @include respond-to("phone") {
+    margin: 0 0 -150px;
+  }
+}

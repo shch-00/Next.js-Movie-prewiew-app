@@ -1,0 +1,92 @@
+@import "@/src/styles/variables.scss";
+@import "@/src/styles/mixins.scss";
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 420px;
+  width: 100%;
+  background-color: $color-white;
+  padding: 64px 40px;
+  border-radius: 24px;
+  gap: 40px;
+
+  &__logo {
+    height: 35px;
+    width: auto;
+
+    @include respond-to("phone") {
+      height: 30px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    position: relative;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    color: $color-black;
+  }
+
+  &__text {
+    color: $color-black;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  &__button {
+    margin-top: 12px;
+    width: 100%;
+    background-color: $color-cornflower-blue;
+    color: $color-white;
+    border: none;
+
+    &:hover {
+      background-color: $color-san-marino;
+    }
+  }
+
+  &__redirect-btn {
+    border: none;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: color $transition-3e;
+
+    &:hover {
+      color: $color-heliotrope;
+    }
+  }
+
+  &__error-message {
+    color: $color-heliotrope;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    text-wrap: nowrap;
+    font-weight: 700;
+  }
+
+  @include respond-to("phone") {
+    padding: 64px 20px 32px;
+    max-width: unset;
+    gap: 32px;
+  }
+}

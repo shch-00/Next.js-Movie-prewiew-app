@@ -1,0 +1,142 @@
+@import "@/src/styles/variables";
+@import "@/src/styles/mixins";
+
+.movie-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  & .button {
+    background-color: #333333;
+    color: #ffffff;
+
+    &:disabled {
+      background-color: #898989;
+
+      &:hover {
+        background-color: #898989;
+      }
+    }
+
+    &--trailer {
+      padding: 16px 48px;
+      background-color: #67a5eb;
+      border: none;
+
+      &:hover {
+        background-color: #3c6ba1;
+      }
+
+      @include respond-to("phone") {
+        padding: 16px 40px;
+        flex: 1 1 auto;
+        max-width: unset;
+      }
+    }
+
+    &--about {
+      padding: 16px 48px;
+      background-color: #393b3c;
+      text-wrap: nowrap;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      @include respond-to("phone") {
+        padding: 16px 40px;
+      }
+    }
+
+    &--favourite,
+    &--change {
+      padding: 16px 22px;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    &--added {
+      & .button__icon {
+        color: $color-melrose;
+      }
+    }
+
+    & .button__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    @include respond-to("tablet") {
+      font-size: 24px;
+    }
+
+    @include respond-to("phone") {
+      font-size: 18px;
+    }
+  }
+
+  .home & {
+    @include respond-to(1320px) {
+      display: grid;
+      grid-template-columns: auto min-content;
+      width: 100%;
+    }
+
+    & .button--trailer,
+    & .button--about {
+      @include respond-to(1320px) {
+        grid-column: 1 / 2;
+      }
+
+      @include respond-to("tablet") {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      @include respond-to("phone") {
+        width: min-content;
+        max-width: unset;
+      }
+    }
+
+    & .button--favourite,
+    & .button--change {
+      @include respond-to(1320px) {
+        grid-column: 2 / 2;
+      }
+    }
+
+    & .button--favourite {
+      @include respond-to(1320px) {
+        grid-row: 1 / 2;
+      }
+    }
+
+    & .button--trailer {
+      @include respond-to("phone") {
+        flex: 1 1 100%;
+      }
+    }
+
+    & .button--about {
+      @include respond-to("phone") {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+
+    @include respond-to("tablet") {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+    }
+
+    @include respond-to("phone") {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+}
